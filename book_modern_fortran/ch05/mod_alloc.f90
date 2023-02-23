@@ -5,7 +5,7 @@ module mod_alloc
     implicit none
 
     private
-    public :: reverse
+    public :: alloc, free
 
 contains
 
@@ -27,14 +27,5 @@ contains
         deallocate(array, stat=stat, errmsg=errmsg)
         if (stat > 0) error stop errmsg
     end subroutine free
-
-    pure function reverse(array)
-        real(real32), allocatable, intent(in) :: array(:)
-        real(real32), allocatable :: reverse(:)
-        integer(int32) :: n
-        n = size(array)
-        allocate(reverse(n))
-        reverse = array(n:1:-1)
-    end function reverse
 
 end module mod_alloc
