@@ -34,7 +34,7 @@ contains
         integer(int32) :: n
         n = size(array)
         allocate(reverse(n))
-        reverse(1:n:1) = array(n:1:-1)
+        reverse = array(n:1:-1)
     end function reverse
 
 end module mod_alloc

@@ -1,0 +1,11 @@
+*.mod
+*.smod
+*.o
+
+*.out
+
+*.dat
+*.txt
+
+*.pdf
+*.png
