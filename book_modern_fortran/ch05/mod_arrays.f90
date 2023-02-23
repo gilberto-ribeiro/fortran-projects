@@ -1,4 +1,4 @@
-module mod_xs
+module mod_arrays
 
     use iso_fortran_env, only: int32, real32
 
@@ -44,4 +44,4 @@ contains
         reverse = x(size(x):1:-1)
     end function reverse
 
-end module mod_xs
+end module mod_arrays
