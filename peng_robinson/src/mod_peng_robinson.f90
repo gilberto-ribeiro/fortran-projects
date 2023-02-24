@@ -80,10 +80,7 @@ contains
         real(real32), dimension(3), intent(in) :: critical_constants
         real(real64), intent(in) :: Z_est
         logical, intent(in), optional :: reduced
-        real(real64), allocatable :: z(:)
-        real(real32) :: corr
-        integer(int32) :: i, j
-        corr = 1
+        real(real64), allocatable :: z(:)compressibility_factor
         if (present(reduced)) then
             if (reduced) then
                 T = critical_constants(1) * T
@@ -101,3 +98,5 @@ contains
     end subroutine print_z_p
 
 end module mod_peng_robinson
+
+! Comentário teste
