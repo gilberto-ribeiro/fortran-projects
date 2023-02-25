@@ -4,6 +4,8 @@ module mod_arrays
 
     implicit none
 
+    public
+
 contains
 
     pure real function average(x)
@@ -37,6 +39,30 @@ contains
             moving_std(i) = std(x(ib:i))
         end do
     end function moving_std
+
+    pure function crosspos(x, w) result(res)
+        real(real32), intent(in) :: x(:)
+        integer(int32), intent(in) :: w
+        integer, allocatable :: res(:)
+        logical, allocatable :: greater(:), smaller(:)
+        integer(int32) :: i
+        res = [(1, i = 2, size(x))]
+        greater = x > moving_average(x, w)
+        smaller = x < moving_average(x, w)
+        res = pack(res, greater(2:) .and. smaller(:size(x)-1))
+    end function crosspos
+
+    pure function crossneg(x, w) result(res)
+        real(real32), intent(in) :: x(:)
+        integer(int32), intent(in) :: w
+        integer, allocatable :: res(:)
+        logical, allocatable :: greater(:), smaller(:)
+        integer(int32) :: i
+        res = [(1, i = 2, size(x))]
+        greater = x > moving_average(x, w)
+        smaller = x < moving_average(x, w)
+        res = pack(res, smaller(2:) .and. greater(:size(x)-1))
+    end function crossneg
 
     pure function reverse(x)
         real(real32), intent(in) :: x(:)
