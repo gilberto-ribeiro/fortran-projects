@@ -1,0 +1,17 @@
+program float
+    ! https://fortran-lang.org/en/learn/quickstart/variables/
+
+    use, intrinsic :: iso_fortran_env, only: sp => real32, dp => real64
+    
+    implicit none
+    
+    real(sp) :: float32
+    real(dp) :: float64
+    
+    float32 = 1.0_sp
+    float64 = 1.0_dp
+
+    print *, 'float32: ', float32
+    print *, 'float64: ', float64
+
+end program float
