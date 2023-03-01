@@ -14,4 +14,4 @@ set terminal pdfcairo font 'courier' size 12cm,9cm
 set output 'fig_peng.pdf'
 replot
 set output
-set terminal wxt
+set terminal qt
